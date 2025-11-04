@@ -80,8 +80,8 @@ namespace impactx::elements
          *  Particles outside the boundary are considered lost.
          *
          * @param action specify action of domain (transmit/absorb)
-         * @param vertices_xx array of coordinates of the horizontal vertex positions (m)
-         * @param vertices_yy array of coordinates of the vertical vertex positions (m)
+         * @param vertices_x array of coordinates of the horizontal vertex positions (m)
+         * @param vertices_y array of coordinates of the vertical vertex positions (m)
          * @param min_radius2 a minimum radius**2 below which all particles are transmitted
          * @param repeat_x horizontal period for repeated masking, optional (m)
          * @param repeat_y vertical period for repeated masking, optional (m)
@@ -92,9 +92,9 @@ namespace impactx::elements
          * @param name a user defined and not necessarily unique name of the element
          */
         PolygonAperture (
-            std::vector< amrex::ParticleReal> vertices_xx,
-            std::vector< amrex::ParticleReal> vertices_yy,
-            amrex::ParticleReal min_radius2x,
+            std::vector< amrex::ParticleReal> vertices_x,
+            std::vector< amrex::ParticleReal> vertices_y,
+            amrex::ParticleReal min_radius2,
             amrex::ParticleReal repeat_x,
             amrex::ParticleReal repeat_y,
             bool shift_odd_x,
@@ -109,7 +109,7 @@ namespace impactx::elements
           Alignment(dx, dy, rotation_degree),
           m_action(action), m_repeat_x(repeat_x), m_repeat_y(repeat_y), m_shift_odd_x(shift_odd_x),
           m_id(PolygonApertureData::next_id),
-          vertices_x(vertices_xx), vertices_y(vertices_yy), min_radius2(min_radius2x)
+          vertices_x(vertices_x), vertices_y(vertices_y), min_radius2(min_radius2)
         {
             using namespace amrex::literals; // for _rt and _prt
 
